@@ -1,0 +1,41 @@
+#text{
+  float: left;
+  width: 49%;
+  height: 70%;
+  //background-color: lavender;
+  position: absolute;
+  border-right: 1px solid brown;
+  border-bottom: 1px solid brown;
+}
+#textPane{
+	margin-left: 0;
+	padding-left: 1%;
+	height:100%;
+	overflow: auto;
+}
+#key{
+  float: left;
+  top: 72%;
+  width: 49%;
+  height: 30%;
+  //background-color: lightpink;
+  position: absolute;
+  border-right: 1px solid brown;
+  border-top: 1px solid brown;
+}
+#keyPane{
+	margin-left: 0;
+	padding-left: 1%;
+	height:100%;
+	overflow: auto;
+}
+
+#treePane{
+  /*float: right;*/
+  left : 50%;
+  width: 49.5%;
+  height: 100%;
+  //background-color: lightblue;
+  position: absolute;
+  border-left: 1px solid brown;
+}

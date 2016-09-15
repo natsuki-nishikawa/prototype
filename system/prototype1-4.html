@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>prototype1-4</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="lib/jquery-3.1.0.js"></script>
+</head>
+<body>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script>
+  var dataList = {
+    name : "#震度",
+    children : [
+      { name : "#地震" ,
+      children : [
+        { name : "#益城町" },
+        { name : "#余震" },
+        { name : "#阿蘇" },
+        { name : "#前震" },
+        { name : "#本震" },
+        { name : "#断層" }
+      ]},
+      { name : "#分析" ,
+      children : [
+        { name : "#断層" },
+        { name : "#余震" },
+        { name : "#阿蘇" },
+        { name : "#益城町" }
+      ]},
+      { name : "#首相" }
+    ]
+  };
+
+  </script>
+
+  <div id="text">
+    <div id="textPane"></div>
+  </div>
+
+  <div id="key">
+    <div id="keyPane"></div>
+  </div>
+
+  <div id="treePane">
+    <div id="tree"></div>
+  </div>
+
+  <script src="js/tree.js"></script>
+  <script src="js/text.js"></script>
+  <script src="js/key.js"></script>
+  <script src="js/input.js"></script>
+</body>
+</html>

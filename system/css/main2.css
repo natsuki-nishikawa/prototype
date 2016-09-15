@@ -1,0 +1,30 @@
+#text{
+  left: 60%;
+  width: 39%;
+  height: 99%;
+  position: absolute;
+  background-color: lightpink;
+  border-right: 1px solid brown;
+  border-top: 1px solid brown;
+  border-left: 1px solid brown;
+  border-bottom: 1px solid brown;
+}
+#textPane{
+	margin-left: 0;
+	padding-left: 1%;
+	height:100%;
+	overflow: auto;
+}
+#bar{
+  width: 60%;
+  height: 10%;
+  position: absolute;
+  background-color: lavender;
+}
+#overall{
+  top: 10%;
+  width: 60%;
+  height: 90%;
+  position: absolute;
+  //background-color: lightblue;
+}
