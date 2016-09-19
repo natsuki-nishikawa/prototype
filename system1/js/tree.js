@@ -41,10 +41,9 @@ svg.selectAll("path")	// パスを対象にする
       "stroke-width" : 7
     });
 
-
-console.log(nodes[1]);
-console.log(nodes);
-console.log(nodes[1].name);
+//確かめ用のコンソール
+//console.log(nodes[1]);
+// console.log(nodes);
 
 // ツリーの開始点、分岐点、末端を●で表示する
 svg.selectAll("circle")
@@ -54,13 +53,31 @@ svg.selectAll("circle")
     .attr("class", function(d){
       return d.name;
     })
-    //全体像を把握するためにマウスオーバーでキーワードを表示させたい
-    // .on("mouseover", function(d){
-    //   d3.select(this).text(d.name);
-    // })
-    //試し
-    .on("click", function(d){
+    //全体像を把握するためにマウスオーバーでキーワードを表示
+    .on("mouseover", function(d, i){
+      //console.log(nodes[i].name);
       console.log(d.name);
+      console.log($(nodes)[i].name);
+      // var x1 = nodes[i].x;
+      // var y1 = nodes[i].y;
+      //console.log(nodes[i].x);
+
+      //ここの処理うまく書けない
+      if($(nodes)[i].name != null){
+        svg.selectAll("p")
+        .data(nodes)
+        .enter()
+        .append("p")
+        .attr({
+          x : function(d, i){ return $(nodes)[i].x},
+          y : function(d, i){ return $(nodes)[i].y},
+          "stroke" : "black",
+          "font-size" : '70%'
+        })
+        .text(function(d, i){ return $(nodes)[i].name });
+      }else{
+       console.log("b");
+      };
     })
 		.attr({
       cx : function(d){ return d.x; },
