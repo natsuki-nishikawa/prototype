@@ -67,7 +67,7 @@ svg.selectAll("circle")
         svg.selectAll("p")
         .data(nodes)
         .enter()
-        .append("p")
+        .append("text")
         .attr({
           x : function(d, i){ return $(nodes)[i].x},
           y : function(d, i){ return $(nodes)[i].y},
@@ -75,6 +75,9 @@ svg.selectAll("circle")
           "font-size" : '70%'
         })
         .text(function(d, i){ return $(nodes)[i].name });
+        // .attr({//回転処理がうまくいかない
+        //   "transform" :  "rotate(" + 180 + ")"
+        // });
       }else{
        console.log("b");
       };

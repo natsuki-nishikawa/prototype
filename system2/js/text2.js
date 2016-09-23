@@ -1,9 +1,40 @@
 // 記事オブジェクト
 var articles = {};
 
-console.log($(".menu"+"option"+" "+"value"));
-console.log($(".menu"));
-console.log($(".menu.option"));
+//確かめ用のコンソール
+// console.log($(".menu"+"option"+" "+"value"));
+// console.log($(".menu"));
+// console.log($(".menu.option"));
+// console.log($(".menu">"."+"selectedIndex"));
+
+function Selc(Obj){
+  //選択された項目番号を取得する
+  index_nub = Obj.selectedIndex;
+  console.log(index_nub);
+
+  if(index_nub == 1){
+    //”震度”の記事を表示
+    console.log("震度");
+  }else if(index_nub == 2){
+    //"被害"の記事を表示
+    console.log("被害");
+  }else if(index_nub == 3){
+    //"避難"の記事を表示
+    console.log("避難");
+  }else if(index_nub == 4){
+    //"天気"の記事を表示
+    console.log("天気");
+  }else if(index_nub == 5){
+    //"支援"の記事を表示
+    console.log("支援");
+  }else if(index_nub == 6){
+    //"復旧"の記事を表示
+    console.log("復旧");
+  }else{
+    //index_nubが0のとき初期化にしようかな？
+    console.log("カテゴリー選択");
+  }
+}
 
 // 記事を生成する関数
 articles.create = function(articles) {
