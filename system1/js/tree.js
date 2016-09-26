@@ -23,6 +23,13 @@ function children(d){ return d["children"]; }
 // ノードを抽出
 var nodes = tree.nodes(dataList);
 
+var tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("position", "absolute")
+    .style("z-index", "10")
+    .style("visibility", "hidden");
+
 // ツリーの線を描く
 svg.selectAll("path")	// パスを対象にする
 		.data(tree.links(nodes))	// リンク情報を読み込む
@@ -54,34 +61,20 @@ svg.selectAll("circle")
       return d.name;
     })
     //全体像を把握するためにマウスオーバーでキーワードを表示
-    .on("mouseover", function(d, i){
-      //console.log(nodes[i].name);
-      console.log(d.name);
-      console.log($(nodes)[i].name);
-      // var x1 = nodes[i].x;
-      // var y1 = nodes[i].y;
-      //console.log(nodes[i].x);
-
-      //ここの処理うまく書けない
-      if($(nodes)[i].name != null){
-        svg.selectAll("p")
-        .data(nodes)
-        .enter()
-        .append("text")
-        .attr({
-          x : function(d, i){ return $(nodes)[i].x},
-          y : function(d, i){ return $(nodes)[i].y},
-          "stroke" : "black",
-          "font-size" : '70%'
-        })
-        .text(function(d, i){ return $(nodes)[i].name });
-        // .attr({//回転処理がうまくいかない
-        //   "transform" :  "rotate(" + 180 + ")"
-        // });
-      }else{
-       console.log("b");
-      };
-    })
+    .on("mouseover", function(){
+        tooltip.style("visibility", "visible");
+      })
+      .on("mousemove", function(d){
+        tooltip
+        .style("top", (d3.event.pageY-10)+"px")
+        .style("left",(d3.event.pageX+10)+"px")
+        .html(
+          "<h3>" + d.name + "</h3>"
+        );
+      })
+      .on("mouseout", function(){
+        tooltip.style("visibility", "hidden");
+      })
 		.attr({
       cx : function(d){ return d.x; },
       cy : function(d){ return d.y+offsetY; },
