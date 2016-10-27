@@ -32,6 +32,27 @@ var words = new Array();
 //   }
 //   console.log(words);
 
+var topicWords = [];
+
+extractTopciWords(dataList)
+
+// オブジェクトのchildrenキーをループする。その際にnameを配列に追加する。
+function extractTopciWords(obj) {
+  if (obj.hasOwnProperty("name")) {
+    topicWords.push(obj["name"])
+  }
+  if (obj.hasOwnProperty("children")) {
+    for (var i=0; i< obj["children"].length; i++) {
+      extractTopciWords(obj["children"][i])
+    }
+  }
+}
+
+// 重複を削除したリスト
+var keywordsTopicWords = topicWords.filter(function (x, i, self) {
+            return self.indexOf(x) === i;
+        });
+console.log(keywordsTopicWords)
 
 // 重複を削除したワード
 var keywords = words.filter(function (x, i, self) {
