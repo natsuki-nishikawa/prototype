@@ -5,7 +5,7 @@ var svg = d3.select("#overall").append("svg")
     "height" : 600
   });
 //x座標
-var x1 = [100, 200, 300, 400, 500, 600, 700, 700, 600, 500, 400, 300, 200, 100, 100, 200, 300, 400, 500, 600, 700, 700, 600, 500, 400, 300, 200, 100, 100, 200];
+var x1 = [100, 200, 300, 400, 500, 600, 700, 100, 200, 300, 400, 500, 600, 700, 100, 200, 300, 400, 500, 600, 700, 100, 200, 300, 400, 500, 600, 700, 100, 200];
 //y座標
 var y1 = [100, 100, 100, 100, 100, 100, 100, 200, 200, 200, 200, 200, 200, 200, 300, 300, 300, 300, 300, 300, 300, 400, 400, 400, 400, 400, 400, 400, 500, 500];
 //一応二次元配列にしているけど？
@@ -18,7 +18,7 @@ var line = d3.svg.line()
 var path = svg.append('path')
     .attr({
       'd': line(x1), //これもなぜかx1
-      'stroke': 'gray',
+      'stroke': 'silver',
       'stroke-width': 5,
       'fill': 'none',
     });
@@ -45,26 +45,21 @@ var g = svg.selectAll("g")
     });
 
   g.append("text")
+    .data(articles)
+    .enter()
     .attr({
       "text-anchor" : "middle",
       "dy" : ".35em",
       "fill" : "white"
     })
     .text(function(d, i){
-      var month = 4;
-      var day = 14;
-      // for(var i=0; i<30; i++){
-      //   day = day+1;
-      //   if(day >= 31){
-      //     day = 0;
-      //     for(var j=0; j<14; j++){
-      //       day = day + 1;
-      //     };
-      //     month = 5;
-      //   };
+      // var month = 4;
+      // var day = 14;
+      // if (day + i > 30) {
+      //   month = 5;
+      //   day -= 30;
       // }
-      if(i>=31){
-        day = 0;
-      }
-      return month + "." + (day+i);
+      // day += i;
+      // return month + "." + day;
+      return d.month + "." + d.day;
     });

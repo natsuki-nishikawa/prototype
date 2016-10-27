@@ -68,6 +68,7 @@ svg.selectAll("circle")
         tooltip
         .style("top", (d3.event.pageY-10)+"px")
         .style("left",(d3.event.pageX+10)+"px")
+        .style("color", "silver")
         .html(
           "<h3>" + d.name + "</h3>"
         );
@@ -78,10 +79,10 @@ svg.selectAll("circle")
 		.attr({
       cx : function(d){ return d.x; },
       cy : function(d){ return d.y+offsetY; },
-      r : 8
+      r : 9
     })
     .style({
-        "stroke" : "forestgreen",
-        "fill" : "forestgreen"
+        "stroke" : "darkgreen",
+        "fill" : "darkgreen"
     })
     .attr("transform", "translate(0, "+offsetY+")");

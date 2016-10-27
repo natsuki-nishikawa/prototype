@@ -15,15 +15,27 @@
 	height:100%;
 	overflow: auto;
 }
-/*#bar{
-  width: 60%;
-  height: 10%;
-  position: absolute;
-  //background-color: lavender;
-}*/
 #overall{
   width: 60%;
   height: 90%;
   position: absolute;
   //background-color: lightblue;
+}
+
+table {
+  align: center;
+  border: solid 1px #000000;
+}
+th {
+  border: solid 1px #000000;
+}
+td {
+  border: solid 1px #000000;
+}
+.tdlink {
+  cursor: pointer;
+  // display: block;
+}
+.tdlink:hover {
+  background-color: #ff0000;
 }
